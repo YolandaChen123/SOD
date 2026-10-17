@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html lang="zh-TW" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SOD 對抗自由基原理 ｜ 楊慶博士互動學習網頁</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            gold: '#f59e0b',
+                            cyan: '#06b6d4',
+                            rose: '#f43f5e',
+                            emerald: '#10b981',
+                            dark: '#060913'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+            background-color: #060913;
+            color: #f1f5f9;
+        }
+        .tab-btn.active {
+            background-color: rgba(245, 158, 11, 0.15);
+            color: #fbbf24;
+            border-color: #f59e0b;
+            box-shadow: 0 0 15px rgba(245, 158, 11, 0.2);
+        }
+        .card-glow {
+            background: rgba(15, 23, 42, 0.75);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .chemical-box {
+            background: radial-gradient(circle at center, rgba(30, 41, 59, 0.8) 0%, rgba(15, 23, 42, 0.9) 100%);
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #090d16;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1e293b;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #334155;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between selection:bg-amber-500 selection:text-slate-950">
+
+    <!-- Header Section -->
+    <header class="border-b border-slate-800 bg-slate-950/80 sticky top-0 z-50 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex flex-col md:flex-row md:items-center justify-between gap-4">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-amber-500 to-cyan-500 flex items-center justify-center text-slate-950 text-xl font-black shadow-lg shadow-amber-500/20">
+                    <i class="fa-solid fa-atom"></i>
+                </div>
+                <div>
+                    <h1 class="text-xl sm:text-2xl font-black text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-slate-100 to-cyan-300">
+                        SOD 對抗自由基防禦機制
+                    </h1>
+                    <p class="text-xs text-slate-400 font-medium">楊慶博士細胞抗氧化學術專題 ‧ 互動學習系統</p>
+                </div>
+            </div>
+
+            <!-- Navigation Tabs -->
+            <nav class="flex p-1 bg-slate-900/90 rounded-2xl border border-slate-800/80 gap-1 overflow-x-auto">
+                <button onclick="switchTab('tab-theory')" id="btn-tab-theory" class="tab-btn active px-4 py-2 rounded-xl text-xs sm:text-sm font-bold border border-transparent transition-all duration-300 whitespace-nowrap flex items-center gap-2">
+                    <i class="fa-solid fa-circle-play text-amber-400"></i>
+                    <span>🎥 核心觀點與影音</span>
+                </button>
+                <button onclick="switchTab('tab-sim')" id="btn-tab-sim" class="tab-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-bold border border-transparent text-slate-400 hover:text-slate-200 transition-all duration-300 whitespace-nowrap flex items-center gap-2">
+                    <i class="fa-solid fa-flask-vial text-cyan-400"></i>
+                    <span>🎮 互動反應模擬器</span>
+                </button>
+                <button onclick="switchTab('tab-quiz')" id="btn-tab-quiz" class="tab-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-bold border border-transparent text-slate-400 hover:text-slate-200 transition-all duration-300 whitespace-nowrap flex items-center gap-2">
+                    <i class="fa-solid fa-graduation-cap text-emerald-400"></i>
+                    <span>📝 知識隨堂考</span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-grow w-full">
+
+        <!-- ================= TAB 1: 核心觀點與影音 ================= -->
+        <section id="tab-theory" class="space-y-10">
+            
+            <!-- Video Link Card & Core Quote Grid -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+                
+                <!-- Stylish Video Link Card (Replaces iframe) -->
+                <div class="lg:col-span-7 card-glow p-6 sm:p-8 rounded-3xl border border-rose-500/30 flex flex-col justify-between space-y-6 relative overflow-hidden group">
+                    <!-- Background Glow Accent -->
+                    <div class="absolute -right-16 -top-16 w-48 h-48 bg-rose-500/10 rounded-full blur-3xl pointer-events-none group-hover:bg-rose-500/20 transition-all duration-500"></div>
+
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between">
+                            <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-rose-500/15 text-rose-400 border border-rose-500/30 text-xs font-semibold">
+                                <i class="fa-brands fa-youtube text-sm"></i> 影音學習資源
+                            </span>
+                            <span class="text-xs text-slate-400 font-mono"><i class="fa-solid fa-user-doctor text-amber-400 mr-1"></i>講者：楊慶博士</span>
+                        </div>
+
+                        <div class="space-y-2">
+                            <h3 class="text-xl sm:text-2xl font-black text-slate-100 leading-snug group-hover:text-rose-300 transition">
+                                楊慶博士談 SOD 對抗自由基的原理
+                            </h3>
+                            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed font-light">
+                                本影片深入剖析細胞自由基損傷、SOD 專一催化防禦途徑，以及超微小分子肽技術對突破細胞膜吸收屏障的重大意義。
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Video CTA Link Area -->
+                    <div class="pt-4 border-t border-slate-800/80 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4">
+                        <div class="flex items-center gap-3">
+                            <div class="w-12 h-12 rounded-2xl bg-rose-500/20 text-rose-400 flex items-center justify-center text-xl flex-shrink-0 border border-rose-500/30">
+                                <i class="fa-solid fa-play"></i>
+                            </div>
+                            <div class="text-xs">
+                                <div class="text-slate-200 font-bold">YouTube 影音專題</div>
+                                <div class="text-slate-400 font-mono">https://youtu.be/YRB_qMNG0kI</div>
+                            </div>
+                        </div>
+
+                        <a href="https://youtu.be/YRB_qMNG0kI" target="_blank" rel="noopener noreferrer" 
+                           class="px-6 py-3.5 rounded-xl bg-gradient-to-r from-rose-500 to-rose-600 hover:from-rose-600 hover:to-rose-700 text-white font-bold text-xs sm:text-sm transition-all duration-300 shadow-lg shadow-rose-500/25 hover:shadow-rose-500/40 flex items-center justify-center gap-2 whitespace-nowrap">
+                            <span>▶ 前往 YouTube 開啟原影片觀看</span>
+                            <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Dr. Yang Quote & Highlight -->
+                <div class="lg:col-span-5 card-glow p-6 sm:p-8 rounded-3xl border-l-4 border-l-amber-500 flex flex-col justify-between space-y-6">
+                    <div class="space-y-4">
+                        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 text-amber-400 border border-amber-500/30 text-xs font-semibold">
+                            <i class="fa-solid fa-quote-left"></i> 核心醫學觀點
+                        </div>
+                        <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-100 leading-snug">
+                            「人會生病，本質上是因為<span class="text-amber-400 underline underline-offset-8 decoration-amber-500/50">細胞生病</span>。」
+                        </h2>
+                        <p class="text-slate-300 text-sm leading-relaxed font-light">
+                            新陳代謝與外在壓力產生的自由基，會奪取正常細胞電子的連鎖反應，導致細胞膜損壞、發炎與器官功能衰退。
+                        </p>
+                    </div>
+
+                    <div class="bg-slate-900/90 border border-slate-800 p-5 rounded-2xl space-y-3">
+                        <div class="flex justify-between items-center text-xs">
+                            <span class="text-slate-400 font-bold">SOD 催化防護效率</span>
+                            <span class="text-amber-400 font-mono font-bold">1 分子 SOD / 每秒百萬個自由基</span>
+                        </div>
+                        <div class="w-full bg-slate-800 rounded-full h-2 overflow-hidden">
+                            <div class="bg-gradient-to-r from-amber-500 to-cyan-400 h-full w-[95%]"></div>
+                        </div>
+                        <p class="text-[11px] text-slate-400">作為體內第一道生物催化酶，SOD 能重複高頻清除超氧陰離子，效率遠超傳統維生素。</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Free Radicals & SOD Mechanism Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                
+                <!-- Free Radicals Card -->
+                <div class="card-glow p-6 sm:p-8 rounded-3xl space-y-4 border border-rose-500/20">
+                    <div class="w-12 h-12 rounded-2xl bg-rose-500/10 border border-rose-500/30 text-rose-400 flex items-center justify-center text-xl font-bold">
+                        <i class="fa-solid fa-burst"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-100">自由基（Free Radicals）的攻擊機制</h3>
+                    <p class="text-slate-300 text-sm leading-relaxed">
+                        人體呼吸作用與環境因子產生活性氧（ROS）。其中破壞力最強且最常見的是<strong class="text-rose-400">超氧陰離子自由基（O₂⁻）</strong>。
+                    </p>
+                    <ul class="space-y-2.5 text-xs sm:text-sm text-slate-300">
+                        <li class="flex items-start gap-2">
+                            <i class="fa-solid fa-triangle-exclamation text-rose-400 mt-1"></i>
+                            <span><strong>未成對電子：</strong>分子結構極不穩定，具有極強掠奪正常細胞分子的傾向。</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i class="fa-solid fa-shield-virus text-rose-400 mt-1"></i>
+                            <span><strong>破壞細胞膜與 DNA：</strong>搶奪膜脂質電子造成過氧化，破壞蛋白質結構與遺傳基因。</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- SOD Defense Concept -->
+                <div class="card-glow p-6 sm:p-8 rounded-3xl space-y-4 border border-amber-500/20">
+                    <div class="w-12 h-12 rounded-2xl bg-amber-500/10 border border-amber-500/30 text-amber-400 flex items-center justify-center text-xl font-bold">
+                        <i class="fa-solid fa-shield-halved"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-100">SOD（超氧化物歧化酶）的專一防禦</h3>
+                    <p class="text-slate-300 text-sm leading-relaxed">
+                        SOD 被譽為人體的「自由基清道夫」，不同於維生素 C/E 的一次性消耗，SOD 屬於<strong>生物活性酶</strong>，能循環催化無毒化反應。
+                    </p>
+                    <ul class="space-y-2.5 text-xs sm:text-sm text-slate-300">
+                        <li class="flex items-start gap-2">
+                            <i class="fa-solid fa-bullseye text-amber-400 mt-1"></i>
+                            <span><strong>靶向清除：</strong>針對毒性最強的超氧陰離子自由基進行極速轉化。</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i class="fa-solid fa-dna text-amber-400 mt-1"></i>
+                            <span><strong>超微分子/小分子肽：</strong>更容易穿透細胞膜屏障，深入細胞內部發揮作用。</span>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <!-- Reaction Chemical Equations -->
+            <div class="card-glow p-6 sm:p-8 rounded-3xl border border-slate-800 space-y-6">
+                <div class="text-center max-w-2xl mx-auto space-y-2">
+                    <h3 class="text-2xl font-bold text-slate-100">SOD 兩步歧化反應鏈圖解</h3>
+                    <p class="text-xs sm:text-sm text-slate-400">
+                        SOD 與體內的過氧化氫酶（CAT）及麩胱甘肽過氧化物酶（GPx）協同接力，將自由基徹底還原為無害物質。
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                    <!-- Step 1 Reaction -->
+                    <div class="chemical-box p-6 rounded-2xl border border-amber-500/30 relative overflow-hidden flex flex-col justify-between space-y-4">
+                        <div class="flex items-center justify-between">
+                            <span class="px-3 py-1 bg-amber-500/20 text-amber-400 text-xs font-bold rounded-lg border border-amber-500/30">
+                                第一步：SOD 專一催化
+                            </span>
+                            <i class="fa-solid fa-bolt-lightning text-amber-400"></i>
+                        </div>
+                        <div class="space-y-2">
+                            <p class="text-sm text-slate-300">超氧陰離子自由基（O₂⁻）結合質子被快速歧化轉化：</p>
+                            <div class="p-4 bg-slate-950/90 rounded-xl border border-slate-800 text-center font-mono text-amber-300 font-bold text-sm sm:text-base tracking-wide overflow-x-auto">
+                                2 O₂⁻ + 2 H⁺ <span class="text-amber-400 px-2">➔ (SOD) ➔</span> H₂O₂ + O₂
+                            </div>
+                        </div>
+                        <p class="text-xs text-slate-400">將具極高破壞力的自由基轉化為「過氧化氫」與「無害氧氣」。</p>
+                    </div>
+
+                    <!-- Step 2 Reaction -->
+                    <div class="chemical-box p-6 rounded-2xl border border-cyan-500/30 relative overflow-hidden flex flex-col justify-between space-y-4">
+                        <div class="flex items-center justify-between">
+                            <span class="px-3 py-1 bg-cyan-500/20 text-cyan-400 text-xs font-bold rounded-lg border border-cyan-500/30">
+                                第二步：CAT / GPx 協同接力
+                            </span>
+                            <i class="fa-solid fa-droplet text-cyan-400"></i>
+                        </div>
+                        <div class="space-y-2">
+                            <p class="text-sm text-slate-300">過氧化氫（H₂O₂）被續航酵素分解為純水與氧氣：</p>
+                            <div class="p-4 bg-slate-950/90 rounded-xl border border-slate-800 text-center font-mono text-cyan-300 font-bold text-sm sm:text-base tracking-wide overflow-x-auto">
+                                2 H₂O₂ <span class="text-cyan-400 px-2">➔ (CAT / GPx) ➔</span> 2 H₂O + O₂
+                            </div>
+                        </div>
+                        <p class="text-xs text-slate-400">過氧化氫酶（Catalase）與 GPx 完成終極分解，最終轉化為身體所需的純水分子。</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dr. Yang's Viewpoint Summary Table -->
+            <div class="card-glow p-6 sm:p-8 rounded-3xl border border-slate-800 space-y-6">
+                <h3 class="text-xl font-bold text-slate-100 flex items-center gap-2">
+                    <i class="fa-solid fa-table text-amber-400"></i> 楊慶博士觀點精華對比摘要
+                </h3>
+                
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left text-xs sm:text-sm text-slate-300">
+                        <thead class="bg-slate-900/80 text-slate-200 border-b border-slate-800 font-bold">
+                            <tr>
+                                <th class="p-4 rounded-tl-xl">對比維度</th>
+                                <th class="p-4">傳統非酶抗氧化劑（如 VC / VE）</th>
+                                <th class="p-4 text-amber-400">超微 SOD（超氧化物歧化酶）</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-800/60">
+                            <tr class="hover:bg-slate-900/40 transition">
+                                <td class="p-4 font-bold text-slate-200">作用機制與效率</td>
+                                <td class="p-4">一對一化學反應，自我犧牲消耗，效率有限。</td>
+                                <td class="p-4 text-amber-300 font-semibold">生物催化劑，1分子可重複極速消滅百萬個自由基。</td>
+                            </tr>
+                            <tr class="hover:bg-slate-900/40 transition">
+                                <td class="p-4 font-bold text-slate-200">標的專一性</td>
+                                <td class="p-4">廣泛非專一碰撞，易受環境酸鹼影響。</td>
+                                <td class="p-4 text-amber-300 font-semibold">高度專一性，直擊毒性最強的超氧陰離子（O₂⁻）。</td>
+                            </tr>
+                            <tr class="hover:bg-slate-900/40 transition">
+                                <td class="p-4 font-bold text-slate-200">吸收與生物利用度</td>
+                                <td class="p-4">大劑量易被代謝排出體外。</td>
+                                <td class="p-4 text-amber-300 font-semibold">超微分子/小分子肽技術，能高順應性穿透細胞膜。</td>
+                            </tr>
+                            <tr class="hover:bg-slate-900/40 transition">
+                                <td class="p-4 font-bold text-slate-200">多重臨床健康意義</td>
+                                <td class="p-4">輔助日常營養補充。</td>
+                                <td class="p-4 text-amber-300 font-semibold">延緩細胞衰老、抗輻射、降血脂、提升免疫力與保護心血管。</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </section>
+
+
+        <!-- ================= TAB 2: 互動反應模擬器 ================= -->
+        <section id="tab-sim" class="hidden space-y-6">
+            
+            <!-- Dashboard Bar -->
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                <div class="card-glow p-4 rounded-2xl border border-slate-800 flex items-center justify-between">
+                    <div>
+                        <div class="text-xs text-slate-400">細胞健康指數</div>
+                        <div id="healthGauge" class="text-2xl font-black text-emerald-400 font-mono mt-1">100%</div>
+                    </div>
+                    <div class="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400">
+                        <i class="fa-solid fa-heart-pulse"></i>
+                    </div>
+                </div>
+
+                <div class="card-glow p-4 rounded-2xl border border-slate-800 flex items-center justify-between">
+                    <div>
+                        <div class="text-xs text-slate-400">累積清除自由基數</div>
+                        <div id="scoreGauge" class="text-2xl font-black text-amber-400 font-mono mt-1">0</div>
+                    </div>
+                    <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400">
+                        <i class="fa-solid fa-shield"></i>
+                    </div>
+                </div>
+
+                <div class="card-glow p-4 rounded-2xl border border-slate-800 flex items-center justify-between">
+                    <div>
+                        <div class="text-xs text-slate-400">氧化壓力狀態</div>
+                        <div id="stressGauge" class="text-2xl font-black text-cyan-400 font-mono mt-1">低 (Safe)</div>
+                    </div>
+                    <div class="w-10 h-10 rounded-xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400">
+                        <i class="fa-solid fa-gauge-high"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Canvas Container -->
+            <div class="relative card-glow p-4 rounded-3xl border border-slate-800 overflow-hidden shadow-2xl">
+                <div class="relative w-full h-[450px] bg-slate-950 rounded-2xl overflow-hidden border border-slate-800">
+                    <canvas id="simCanvas" class="w-full h-full block cursor-crosshair"></canvas>
+
+                    <!-- HUD Legend Overlay -->
+                    <div class="absolute top-4 left-4 bg-slate-900/90 backdrop-blur-md px-3 py-2.5 rounded-xl border border-slate-800 text-xs space-y-1.5 shadow-lg pointer-events-none">
+                        <div class="flex items-center gap-2">
+                            <span class="w-3 h-3 rounded-full bg-rose-500 shadow-sm shadow-rose-500"></span>
+                            <span class="text-slate-300">超氧自由基 (O₂⁻)</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="w-3 h-3 rounded-full bg-amber-400 shadow-sm shadow-amber-400"></span>
+                            <span class="text-slate-300">SOD 酵素</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="w-3 h-3 rounded-full bg-cyan-400 shadow-sm shadow-cyan-400"></span>
+                            <span class="text-slate-300">轉化生成物 (H₂O / O₂)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Control Sliders & Controls -->
+                <div class="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 items-center">
+                    
+                    <!-- SOD Concentration Slider -->
+                    <div class="bg-slate-900/80 p-4 rounded-2xl border border-slate-800 space-y-2">
+                        <div class="flex justify-between items-center text-xs">
+                            <span class="font-bold text-amber-400 flex items-center gap-1.5">
+                                <i class="fa-solid fa-cubes"></i> SOD 酵素濃度
+                            </span>
+                            <span id="sodVal" class="font-mono bg-amber-500/20 text-amber-300 px-2 py-0.5 rounded font-bold">5</span>
+                        </div>
+                        <input type="range" id="sodSlider" min="1" max="10" value="5" class="w-full accent-amber-500 cursor-pointer">
+                    </div>
+
+                    <!-- Radical Spawn Rate Slider -->
+                    <div class="bg-slate-900/80 p-4 rounded-2xl border border-slate-800 space-y-2">
+                        <div class="flex justify-between items-center text-xs">
+                            <span class="font-bold text-rose-400 flex items-center gap-1.5">
+                                <i class="fa-solid fa-biohazard"></i> 自由基生成速度 (氧化壓力)
+                            </span>
+                            <span id="radicalVal" class="font-mono bg-rose-500/20 text-rose-300 px-2 py-0.5 rounded font-bold">3</span>
+                        </div>
+                        <input type="range" id="radicalSlider" min="1" max="10" value="3" class="w-full accent-rose-500 cursor-pointer">
+                    </div>
+
+                    <!-- Reset Button -->
+                    <div class="flex gap-3 sm:col-span-2 lg:col-span-1">
+                        <button id="resetSimBtn" class="flex-1 py-3 px-4 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 font-bold text-xs sm:text-sm transition border border-slate-700 flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-rotate-right"></i> 重置模擬器
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="p-4 rounded-2xl bg-slate-900/60 border border-slate-800/80 text-xs text-slate-400 leading-relaxed flex items-center gap-3">
+                <i class="fa-solid fa-circle-info text-cyan-400 text-base"></i>
+                <span><strong>模擬提示：</strong> 當 SOD 濃度提高時，自由基將在進入細胞膜前被快速中和，產生藍色的無害水分子與氧氣；若 SOD 濃度不足，自由基將撞擊細胞膜並導致健康指數下降。</span>
+            </div>
+
+        </section>
+
+
+        <!-- ================= TAB 3: 知識隨堂考 ================= -->
+        <section id="tab-quiz" class="hidden space-y-8">
+            
+            <!-- Quiz Header Banner -->
+            <div class="card-glow p-6 sm:p-8 rounded-3xl border border-slate-800 flex flex-col md:flex-row items-center justify-between gap-6">
+                <div class="space-y-2">
+                    <h2 class="text-2xl font-bold text-slate-100 flex items-center gap-2">
+                        <i class="fa-solid fa-graduation-cap text-emerald-400"></i> SOD 與細胞防禦 隨堂測驗
+                    </h2>
+                    <p class="text-xs sm:text-sm text-slate-400">
+                        透過 5 道隨堂測驗題，測試您對楊慶博士觀點與 SOD 化學機制的掌握程度。
+                    </p>
+                </div>
+                <!-- Score Result Display -->
+                <div id="quizResultBox" class="hidden bg-slate-900 p-4 rounded-2xl border border-emerald-500/30 text-center min-w-[200px]">
+                    <div class="text-xs text-slate-400">最終測驗成績</div>
+                    <div id="finalScoreText" class="text-3xl font-black text-emerald-400 font-mono mt-1">0 / 100</div>
+                </div>
+            </div>
+
+            <!-- Quiz Questions Container -->
+            <div id="quizList" class="space-y-6">
+                <!-- Dynamically Rendered by JS -->
+            </div>
+
+            <!-- Quiz Controls -->
+            <div class="flex flex-wrap items-center justify-between gap-4 pt-4 border-t border-slate-800">
+                <button onclick="resetQuiz()" class="px-6 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 font-bold text-sm transition border border-slate-700 flex items-center gap-2">
+                    <i class="fa-solid fa-arrows-rotate"></i> 重新挑戰
+                </button>
+                <button onclick="submitQuiz()" id="submitQuizBtn" class="px-8 py-3 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 text-slate-950 font-black text-sm transition shadow-lg shadow-emerald-500/20 flex items-center gap-2">
+                    <i class="fa-solid fa-paper-plane"></i> 交卷並查看成績解析
+                </button>
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-slate-800 bg-slate-950 py-6 text-center text-slate-500 text-xs">
+        <div class="max-w-7xl mx-auto px-4">
+            <p>SOD 對抗自由基原理 互動學習網頁 ‧ 根據楊慶博士學術影片觀點製作</p>
+        </div>
+    </footer>
+
+    <!-- Interactive Logic Script -->
+    <script>
+        // ================= TAB SWITCHING LOGIC =================
+        function switchTab(tabId) {
+            // Hide all tabs
+            document.getElementById('tab-theory').classList.add('hidden');
+            document.getElementById('tab-sim').classList.add('hidden');
+            document.getElementById('tab-quiz').classList.add('hidden');
+
+            // Reset active button styles
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('active');
+                btn.classList.add('text-slate-400');
+            });
+
+            // Show target tab
+            const target = document.getElementById(tabId);
+            target.classList.remove('hidden');
+
+            const activeBtn = document.getElementById(`btn-${tabId}`);
+            activeBtn.classList.add('active');
+            activeBtn.classList.remove('text-slate-400');
+
+            // Trigger canvas resize when entering sim tab
+            if(tabId === 'tab-sim') {
+                setTimeout(resizeCanvas, 50);
+            }
+        }
+
+        // ================= CANVAS SIMULATION ENGINE =================
+        const canvas = document.getElementById('simCanvas');
+        const ctx = canvas.getContext('2d');
+
+        function resizeCanvas() {
+            if(!canvas) return;
+            canvas.width = canvas.parentElement.clientWidth;
+            canvas.height = canvas.parentElement.clientHeight;
+        }
+        window.addEventListener('resize', resizeCanvas);
+
+        let health = 100;
+        let score = 0;
+        let radicals = [];
+        let sodEnzymes = [];
+        let products = [];
+
+        const sodSlider = document.getElementById('sodSlider');
+        const radicalSlider = document.getElementById('radicalSlider');
+        const sodVal = document.getElementById('sodVal');
+        const radicalVal = document.getElementById('radicalVal');
+        const healthGauge = document.getElementById('healthGauge');
+        const scoreGauge = document.getElementById('scoreGauge');
+        const stressGauge = document.getElementById('stressGauge');
+        const resetSimBtn = document.getElementById('resetSimBtn');
+
+        sodSlider.addEventListener('input', (e) => {
+            sodVal.innerText = e.target.value;
+            syncSODCount();
+        });
+
+        radicalSlider.addEventListener('input', (e) => {
+            radicalVal.innerText = e.target.value;
+        });
+
+        resetSimBtn.addEventListener('click', resetSimulation);
+
+        function resetSimulation() {
+            health = 100;
+            score = 0;
+            radicals = [];
+            products = [];
+            syncSODCount();
+            updateDashboard();
+        }
+
+        function getCell() {
+            return {
+                x: canvas.width / 2,
+                y: canvas.height / 2,
+                radius: Math.min(canvas.width, canvas.height) * 0.22
+            };
+        }
+
+        function syncSODCount() {
+            const count = parseInt(sodSlider.value) * 4;
+            while(sodEnzymes.length < count) {
+                sodEnzymes.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height,
+                    vx: (Math.random() - 0.5) * 2.5,
+                    vy: (Math.random() - 0.5) * 2.5,
+                    r: 7
+                });
+            }
+            while(sodEnzymes.length > count) {
+                sodEnzymes.pop();
+            }
+        }
+
+        function spawnRadical() {
+            const rate = parseInt(radicalSlider.value);
+            if (Math.random() < rate * 0.04) {
+                let x, y;
+                if(Math.random() < 0.5) {
+                    x = Math.random() < 0.5 ? 0 : canvas.width;
+                    y = Math.random() * canvas.height;
+                } else {
+                    x = Math.random() * canvas.width;
+                    y = Math.random() < 0.5 ? 0 : canvas.height;
+                }
+                
+                const cell = getCell();
+                const angle = Math.atan2(cell.y - y, cell.x - x);
+                const speed = 1.2 + Math.random() * 1.8;
+
+                radicals.push({
+                    x: x,
+                    y: y,
+                    vx: Math.cos(angle) * speed,
+                    vy: Math.sin(angle) * speed,
+                    r: 5
+                });
+            }
+        }
+
+        function updateDashboard() {
+            healthGauge.innerText = `${Math.max(0, Math.round(health))}%`;
+            scoreGauge.innerText = score;
+
+            if(health > 70) {
+                healthGauge.className = "text-2xl font-black text-emerald-400 font-mono mt-1";
+            } else if(health > 30) {
+                healthGauge.className = "text-2xl font-black text-amber-400 font-mono mt-1";
+            } else {
+                healthGauge.className = "text-2xl font-black text-rose-500 font-mono mt-1";
+            }
+
+            const activeCount = radicals.length;
+            if(activeCount > 18) {
+                stressGauge.innerText = "高 (High Risk)";
+                stressGauge.className = "text-2xl font-black text-rose-500 font-mono mt-1";
+            } else if(activeCount > 8) {
+                stressGauge.innerText = "中等 (Moderate)";
+                stressGauge.className = "text-2xl font-black text-amber-400 font-mono mt-1";
+            } else {
+                stressGauge.innerText = "低 (Safe)";
+                stressGauge.className = "text-2xl font-black text-cyan-400 font-mono mt-1";
+            }
+        }
+
+        function animateSim() {
+            if (canvas.offsetWidth === 0 || canvas.offsetHeight === 0) {
+                requestAnimationFrame(animateSim);
+                return;
+            }
+
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            const cell = getCell();
+
+            // 1. Draw Cell Membrane & Core
+            ctx.beginPath();
+            ctx.arc(cell.x, cell.y, cell.radius, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(16, 185, 129, ${0.08 + (health/100)*0.18})`;
+            ctx.fill();
+            ctx.strokeStyle = health > 50 ? 'rgba(52, 211, 153, 0.7)' : 'rgba(244, 63, 94, 0.7)';
+            ctx.lineWidth = 3;
+            ctx.stroke();
+
+            // Cell Label
+            ctx.fillStyle = 'rgba(241, 245, 249, 0.85)';
+            ctx.font = 'bold 13px Noto Sans TC';
+            ctx.textAlign = 'center';
+            ctx.fillText('正常人體細胞膜', cell.x, cell.y + 4);
+
+            spawnRadical();
+
+            // 2. Update & Draw SOD Enzymes
+            sodEnzymes.forEach(s => {
+                s.x += s.vx;
+                s.y += s.vy;
+
+                if (s.x < 0 || s.x > canvas.width) s.vx *= -1;
+                if (s.y < 0 || s.y > canvas.height) s.vy *= -1;
+
+                ctx.beginPath();
+                ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+                ctx.fillStyle = '#f59e0b';
+                ctx.fill();
+            });
+
+            // 3. Update & Draw Radicals
+            for (let i = radicals.length - 1; i >= 0; i--) {
+                let r = radicals[i];
+                r.x += r.vx;
+                r.y += r.vy;
+
+                // Hit cell
+                const distToCell = Math.hypot(r.x - cell.x, r.y - cell.y);
+                if (distToCell < cell.radius + r.r) {
+                    health = Math.max(0, health - 1.2);
+                    radicals.splice(i, 1);
+                    updateDashboard();
+                    continue;
+                }
+
+                // Neutralized by SOD
+                let hitSOD = false;
+                for (let s of sodEnzymes) {
+                    const distToSOD = Math.hypot(r.x - s.x, r.y - s.y);
+                    if (distToSOD < r.r + s.r + 6) {
+                        hitSOD = true;
+                        score++;
+                        
+                        // Spawn neutralized particles (Cyan H2O/O2)
+                        for(let p = 0; p < 3; p++) {
+                            products.push({
+                                x: r.x,
+                                y: r.y,
+                                vx: (Math.random() - 0.5) * 2,
+                                vy: -1 - Math.random() * 1.5,
+                                alpha: 1.0
+                            });
+                        }
+                        break;
+                    }
+                }
+
+                if (hitSOD) {
+                    radicals.splice(i, 1);
+                    updateDashboard();
+                    continue;
+                }
+
+                // Render Radical
+                ctx.beginPath();
+                ctx.arc(r.x, r.y, r.r, 0, Math.PI * 2);
+                ctx.fillStyle = '#f43f5e';
+                ctx.fill();
+            }
+
+            // 4. Update & Draw Products (Cyan H2O/O2)
+            for (let i = products.length - 1; i >= 0; i--) {
+                let p = products[i];
+                p.x += p.vx;
+                p.y += p.vy;
+                p.alpha -= 0.025;
+
+                if (p.alpha <= 0) {
+                    products.splice(i, 1);
+                    continue;
+                }
+
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, 3.5, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(6, 182, 212, ${p.alpha})`;
+                ctx.fill();
+            }
+
+            requestAnimationFrame(animateSim);
+        }
+
+        // ================= QUIZ ENGINE =================
+        const quizData = [
+            {
+                id: 1,
+                question: "根據楊慶博士的生化觀點，人體會生病的最本質原因為何？",
+                options: [
+                    { label: "A", text: "單純因為外在病毒破壞" },
+                    { label: "B", text: "細胞受到自由基等因素攻擊而損傷（細胞生病）", isCorrect: true },
+                    { label: "C", text: "身體缺乏充足的維生素 C" },
+                    { label: "D", text: "血液中缺乏水分" }
+                ],
+                explanation: "楊慶博士強調「人會生病，本質上是因為細胞生病」。自由基搶奪電子攻擊細胞膜與 DNA，是引發發炎與器官功能失調的核心源頭。"
+            },
+            {
+                id: 2,
+                question: "SOD（超氧化物歧化酶）在對抗超氧自由基（O₂⁻）的第一步歧化反應中，產物是什麼？",
+                options: [
+                    { label: "A", text: "二氧化碳（CO₂）與水（H₂O）" },
+                    { label: "B", text: "過氧化氫（H₂O₂）與氧氣（O₂）", isCorrect: true },
+                    { label: "C", text: "葡萄糖與乳酸" },
+                    { label: "D", text: "一氧化氮（NO）與氫氣" }
+                ],
+                explanation: "SOD 第一步化學反應式為：2 O₂⁻ + 2 H⁺ ➔ H₂O₂ + O₂。它能精準地將毒性極高的超氧陰離子轉化為過氧化氫與氧氣。"
+            },
+            {
+                id: 3,
+                question: "在 SOD 防禦鏈中，第二階段將「過氧化氫（H₂O₂）」進一步分解為完全無毒的水與氧氣的關鍵酵素是？",
+                options: [
+                    { label: "A", text: "胃蛋白酶" },
+                    { label: "B", text: "澱粉酶" },
+                    { label: "C", text: "過氧化氫酶（CAT）與麩胱甘肽過氧化物酶（GPx）", isCorrect: true },
+                    { label: "D", text: "胰島素" }
+                ],
+                explanation: "SOD 第一步產生的 H₂O₂ 仍具有氧化性，需接續由 CAT 或 GPx 催化二次分解：2 H₂O₂ ➔ 2 H₂O + O₂，完成終極無毒化。"
+            },
+            {
+                id: 4,
+                question: "為何 SOD 被視為比維生素 C、維生素 E 更高效的「第一道抗氧化防線」？",
+                options: [
+                    { label: "A", text: "因為 SOD 屬於生物催化酶，1 個分子可重複極速消滅數百萬個自由基", isCorrect: true },
+                    { label: "B", text: "因為維生素 C 無法中和任何自由基" },
+                    { label: "C", text: "因為 SOD 是分子量最小的營養素" },
+                    { label: "D", text: "因為 SOD 只會存在於水果中" }
+                ],
+                explanation: "維生素 C/E 屬於「非酶類」抗氧化劑，採一對一化學消耗；而 SOD 是「生物酶」，能高頻率重複催化，效率呈數量級的超越。"
+            },
+            {
+                id: 5,
+                question: "楊慶博士提到採用「超微分子 / 小分子肽」技術製造 SOD 的主要優勢是什麼？",
+                options: [
+                    { label: "A", text: "讓 SOD 變甜更好入口" },
+                    { label: "B", text: "大幅提昇生物利用度，使其能突破屏障順利滲入細胞內部發揮保護作用", isCorrect: true },
+                    { label: "C", text: "降低 SOD 在血液中的流速" },
+                    { label: "D", text: "防止 SOD 轉化為水" }
+                ],
+                explanation: "傳統大分子酶易被消化道分解或難以穿透細胞膜，超微分子/小分子肽形式能順利通過細胞屏障，大大提升保護細胞的利用率。"
+            }
+        ];
+
+        let userAnswers = {};
+
+        function renderQuiz() {
+            const quizList = document.getElementById('quizList');
+            quizList.innerHTML = quizData.map((q, idx) => `
+                <div class="card-glow p-6 rounded-3xl border border-slate-800 space-y-4" id="q-card-${q.id}">
+                    <div class="flex items-start gap-3">
+                        <span class="w-7 h-7 rounded-lg bg-amber-500/20 border border-amber-500/40 text-amber-400 font-bold text-xs flex items-center justify-center flex-shrink-0 mt-0.5">
+                            Q${idx + 1}
+                        </span>
+                        <h3 class="text-base sm:text-lg font-bold text-slate-100">${q.question}</h3>
+                    </div>
+
+                    <div class="grid grid-cols-1 gap-2.5 pt-2">
+                        ${q.options.map((opt, oIdx) => `
+                            <button onclick="selectOption(${q.id}, ${oIdx})" 
+                                    id="opt-btn-${q.id}-${oIdx}"
+                                    class="opt-btn-${q.id} w-full text-left p-3.5 rounded-2xl bg-slate-900 hover:bg-slate-800/80 border border-slate-800 text-xs sm:text-sm text-slate-300 transition flex items-center gap-3">
+                                <span class="w-6 h-6 rounded-md bg-slate-800 text-slate-400 font-mono text-xs flex items-center justify-center flex-shrink-0 font-bold">
+                                    ${opt.label}
+                                </span>
+                                <span>${opt.text}</span>
+                            </button>
+                        `).join('')}
+                    </div>
+
+                    <!-- Explanation Box (Hidden initially) -->
+                    <div id="exp-box-${q.id}" class="hidden p-4 rounded-2xl text-xs sm:text-sm leading-relaxed border space-y-1"></div>
+                </div>
+            `).join('');
+        }
+
+        function selectOption(qId, oIdx) {
+            userAnswers[qId] = oIdx;
+            
+            // Highlight selected button UI
+            document.querySelectorAll(`.opt-btn-${qId}`).forEach((btn, idx) => {
+                if(idx === oIdx) {
+                    btn.className = `opt-btn-${qId} w-full text-left p-3.5 rounded-2xl bg-amber-500/10 border-2 border-amber-500 text-xs sm:text-sm text-amber-300 font-semibold transition flex items-center gap-3`;
+                } else {
+                    btn.className = `opt-btn-${qId} w-full text-left p-3.5 rounded-2xl bg-slate-900 border border-slate-800 text-xs sm:text-sm text-slate-400 opacity-60 transition flex items-center gap-3`;
+                }
+            });
+        }
+
+        function submitQuiz() {
+            let correctCount = 0;
+
+            quizData.forEach(q => {
+                const selectedIdx = userAnswers[q.id];
+                const expBox = document.getElementById(`exp-box-${q.id}`);
+                expBox.classList.remove('hidden');
+
+                // Disable option buttons
+                document.querySelectorAll(`.opt-btn-${q.id}`).forEach(btn => btn.classList.add('pointer-events-none'));
+
+                if(selectedIdx !== undefined && q.options[selectedIdx].isCorrect) {
+                    correctCount++;
+                    expBox.className = "p-4 rounded-2xl text-xs sm:text-sm leading-relaxed bg-emerald-500/10 border border-emerald-500/30 text-emerald-300 space-y-1";
+                    expBox.innerHTML = `<strong>✅ 回答正確！</strong><p>${q.explanation}</p>`;
+                } else {
+                    expBox.className = "p-4 rounded-2xl text-xs sm:text-sm leading-relaxed bg-rose-500/10 border border-rose-500/30 text-rose-300 space-y-1";
+                    expBox.innerHTML = `<strong>❌ 回答錯誤或未作答。</strong><p>${q.explanation}</p>`;
+                }
+            });
+
+            // Calculate Score
+            const finalScore = Math.round((correctCount / quizData.length) * 100);
+            const scoreBox = document.getElementById('quizResultBox');
+            const scoreText = document.getElementById('finalScoreText');
+            scoreBox.classList.remove('hidden');
+            scoreText.innerText = `${finalScore} 分`;
+
+            if(finalScore >= 80) {
+                scoreText.className = "text-3xl font-black text-emerald-400 font-mono mt-1";
+            } else {
+                scoreText.className = "text-3xl font-black text-amber-400 font-mono mt-1";
+            }
+        }
+
+        function resetQuiz() {
+            userAnswers = {};
+            document.getElementById('quizResultBox').classList.add('hidden');
+            renderQuiz();
+        }
+
+        // Initialize Everything on Load
+        window.onload = function() {
+            syncSODCount();
+            resizeCanvas();
+            animateSim();
+            renderQuiz();
+        };
+    </script>
+</body>
+</html>
